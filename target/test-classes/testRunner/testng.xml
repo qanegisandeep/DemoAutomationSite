@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Parallel Execution" parallel = "tests" thread-count ="2" verbose="3"> 
+<suite name="Parallel Execution" parallel = "tests" thread-count ="1" verbose="3"> 
 <!-- <suite name="Parallel Execution" verbose="3"> -->
   <listeners>
 	<listener class-name="com.qa.shopping.listeners.ExtentReportListener" />
@@ -15,10 +15,14 @@
     </classes>
   </test> -->
   
-   <test name="First Test" parallel ="methods" thread-count ="1" >
+   <test name="First Test" parallel ="methods" thread-count ="2" >
   <parameter name = "browser" value = "chrome" />
     <classes>
     	<class name="com.qa.shopping.tests.LandingPageTests">
+	    	<methods>
+	            <include name="verifySignInLinkTest" />
+	            <include name="verifyContactUsInLinkTest" />
+	        </methods>
     	</class>
     </classes>
   </test> 
@@ -27,6 +31,10 @@
    <parameter name = "browser" value = "firefox" />
     <classes>
     	<class name="com.qa.shopping.tests.SignInPageTests">
+	    	<methods>
+	              <include name="verifyUserSignInPageTest" />
+	               <include name="verifyForgotPasswordLinkTest" />
+	       </methods>
     	</class>
     </classes> 
     </test>

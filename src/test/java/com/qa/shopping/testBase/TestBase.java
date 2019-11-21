@@ -20,6 +20,8 @@ public class TestBase {
 	@AfterMethod
 	public void tearDownTest() {
 		TLDriverFactory.getTLDriver().quit();
+		
+		TLDriverFactory.tlDriver.remove();
 	}
 
 

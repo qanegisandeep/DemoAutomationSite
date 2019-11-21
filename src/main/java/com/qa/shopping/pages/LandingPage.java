@@ -17,8 +17,7 @@ public class LandingPage extends TLDriverFactory{
 	public LandingPage(WebDriver driver) {
 		this.driver = driver;
 		elementUtilities = new ElementUtilities(driver);
-		elementUtilities.waitForTitlePresent("My Store", 20);
-		
+		elementUtilities.waitForTitlePresent("My Store", 20);	
 	}
 	
 	public boolean isSignInLinkPresent() {

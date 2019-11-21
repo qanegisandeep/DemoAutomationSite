@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Parallel Execution" parallel = "tests" thread-count ="2" verbose="3"> 
+<!-- <suite name="Parallel Execution" verbose="3"> -->
+  <!-- <listeners>
+	<listener class-name="com.qa.shopping.listeners.ExtentReportListener" />
+ </listeners> -->
+ 
+ <!-- <test name="First Test">
+ <parameter name = "browser" value = "chrome" />
+    <classes>
+    	<class name="com.qa.shopping.tests.LandingPageTests" />
+    	<class name="com.qa.shopping.tests.SignInPageTests" />
+    </classes>
+  </test> -->
+  
+   <test name="First Test" parallel ="methods" thread-count ="1" >
+  <parameter name = "browser" value = "chrome" />
+    <classes>
+    	<class name="com.qa.shopping.tests.LandingPageTests">
+    	</class>
+    </classes>
+  </test> 
+  
+   <test name="Second Test" parallel ="methods" thread-count = "2">
+   <parameter name = "browser" value = "firefox" />
+    <classes>
+    	<class name="com.qa.shopping.tests.SignInPageTests">
+    	</class>
+    </classes> 
+    </test>
+  <!-- Test -->
+</suite> <!-- Suite -->
